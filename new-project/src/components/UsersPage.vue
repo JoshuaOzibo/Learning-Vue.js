@@ -1,7 +1,22 @@
 <script setup>
+import {newCount} from '../components/composables/NewCounter';
     import {ref, defineEmits, defineProps} from 'vue';
 
+    // export default{
+    //     setup(){
+    //         return newCount
+    //     }
+    // }
+
     let data = ref([]);
+    let count = ref(0);
+
+
+    const countHandler = () =>{
+        // count.value++,
+        this.newCount += 10
+    }
+    
     const props = defineProps({
   items: {
     type: String
@@ -34,12 +49,16 @@
         // created() {
         //     this.items
         // }
+
 </script>
 
 <template>
-    <p>{{ props.items }}</p>
+    {{ newCount }}
+    
+    {{ count }}
+    <button @click="countHandler">+1</button>
     <button @click="fetchBtn">FetchItems</button>
-    <p>{{ data }}</p>
+   
     <!-- <button @click="dataFetch">Fetch Users</button>
     <p v-if="this.items.length === 0">Loading Users...</p>
     <p v-else  v-for="(item, index) in items">{{ index + 1 }}</p> -->

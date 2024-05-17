@@ -1,11 +1,11 @@
 <script>
 import {ref, computed} from 'vue';
+import { newCount } from './composables/NewCounter';
     export default{
         async setup(){
             const fetchData = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0');
             const response = await fetchData.json();
             const Name = ref('Joshua'); //the ref allow us to use reactive refrence
-            console.log(Name)
 
             const changeToUpperCase = computed(() => {
                 return Name.value.toUpperCase();
@@ -14,7 +14,8 @@ import {ref, computed} from 'vue';
             return {
                 response,
                 Name,
-                changeToUpperCase 
+                changeToUpperCase ,
+                newCount
             }
         },
 
@@ -25,12 +26,18 @@ import {ref, computed} from 'vue';
 
             toUpper(){
                 this.changeToUpperCase
+            },
+
+            clickIncrease(){
+                this.newCount ++
             }
         }
     }
 </script>
 
 <template>
+    <button @click="clickIncrease">+ 1</button>
+    {{ newCount }}
     <h3>{{ Name }}</h3>
     <button @click="changeName">changeName</button>
     <button @click="toUpper">uppercase</button>

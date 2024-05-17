@@ -33,10 +33,10 @@ import {ref} from 'vue';
   <h2>Hello Fetching</h2>
   <!-- <FetchData /> -->
   
-
+  <SlotButton />
   <Suspense>
-    <!-- <compositionRef /> -->
-    <UsersPage :items="Hello" /> 
+    <compositionRef />
+    <!-- <UsersPage :items="Hello" />  -->
 
     <template #fallback>
       <h1>Loading....</h1>
