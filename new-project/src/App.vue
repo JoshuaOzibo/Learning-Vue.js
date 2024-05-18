@@ -6,13 +6,15 @@ import FetchData from './components/Fetch.vue';
 import UsersPage from './components/UsersPage.vue';
 import compositionRef from './components/composition&Ref.vue';
 import {ref} from 'vue';
+import Testing from './components/Texting.vue';
   export default{
     components: {
     Todo,
     SlotButton,
     FetchData,
     UsersPage,
-    compositionRef
+    compositionRef,
+    Testing
   },
 
   data(){
@@ -26,6 +28,7 @@ import {ref} from 'vue';
 </script>
 
 <template>
+  <Testing />
   <!-- <Todo />
   <SlotButton :name="name" :item="itemName"> </SlotButton> -->
 

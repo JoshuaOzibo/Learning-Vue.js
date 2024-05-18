@@ -1,5 +1,6 @@
 <script setup>
 import {newCount} from '../components/composables/NewCounter';
+import {counterBtn} from '../../src/composable/useFunction.js';
     import {ref, defineEmits, defineProps} from 'vue';
 
     // export default{
@@ -7,7 +8,7 @@ import {newCount} from '../components/composables/NewCounter';
     //         return newCount
     //     }
     // }
-
+    const {globalCounter, localCounter} = counterBtn();
     let data = ref([]);
     let count = ref(0);
 

@@ -1,7 +1,12 @@
 import {ref} from 'vue';
 
-const counter = ref(0)
+const globalCounter = ref(10)
 
 export const counterBtn = (() => {
-    counter ++;
+    const localCounter = ref(19);
+
+    return {
+        globalCounter,
+        localCounter
+    }
 });
